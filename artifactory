@@ -1,2 +1,5 @@
 upload into artifcatory (sample)
 curl -X PUT -u myUser:myPassword -T test.txt "http://localhost:8081/artifactory/libs-release-local/test/test.txt"
+
+remote copy between two hosts
+scp xxx.txt user@10.20.20.40:/home/user/<repo>/path/to/dir/
