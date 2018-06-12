@@ -1,3 +1,6 @@
 -- TO check the system product name---
 sudo /usr/sbin/dmidecode -s system-product-name
 PowerEdge R730 
+
+#Pam tally to reset the user password
+pam_tally2 --user<user name> --reset
