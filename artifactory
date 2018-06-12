@@ -3,3 +3,6 @@ curl -X PUT -u myUser:myPassword -T test.txt "http://localhost:8081/artifactory/
 
 remote copy between two hosts
 scp xxx.txt user@10.20.20.40:/home/user/<repo>/path/to/dir/
+
+#Pam tally to reset the user password
+pam_tally2 --user<user name> --reset
