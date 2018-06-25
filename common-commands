@@ -4,3 +4,16 @@ PowerEdge R730
 
 #Pam tally to reset the user password
 pam_tally2 --user<user name> --reset
+
+# To change ssh port number in linux
+vim /etc/ssh/sshd_config
+ uncomment the 'Port=2222'
+run => semanage port -a -t ssh_port_t -p tcp #portnumber <2222>
+# if you don't have semanage then install
+yum -y install policycoreutils-python
+
+firewall-cmd --permenant --add-port=2222/tcp
+firewall-cmd --reload
+service sshd restart
+# to test in local (0.0.0.0)
+ssh 0 -p 2222
