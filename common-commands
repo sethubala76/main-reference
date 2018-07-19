@@ -17,3 +17,10 @@ firewall-cmd --reload
 service sshd restart
 # to test in local (0.0.0.0)
 ssh 0 -p 2222
+
+# To check virtulization in linux HW
+/usr/bin/VBoxManage list hostinfo | grep virtualization
+# RHEL release check
+cat /etc/redhat-release
+#Kernel check 
+uname -r
