@@ -24,3 +24,5 @@ ssh 0 -p 2222
 cat /etc/redhat-release
 #Kernel check 
 uname -r
+
+%SystemRoot%\SYSTEM32\rundll32.exe dsquery,OpenQueryWindow
