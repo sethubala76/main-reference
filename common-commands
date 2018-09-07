@@ -30,3 +30,24 @@ uname -r
 #LDAP Search commands
 LDAPTLS_CACERT=/home/bala/certificates/root.cer ldapsearch -x -H ldaps://<hostname.country.org.com>:1636 -D " cn=<employeeid>,ou=users,o=<org>" -W -s base -b "ou=users,o=<org>" -s one "(&(objectclass=<person>)(cn=<employeeid>))" mail
 ldapsearch  -H ldaps://<hostname.country.org.com>:1636 -D "cn=<applicationid>,ou=<applicationame>,ou=apps,o=<org>" -w Abc@12345  -b ou=users,o=<org> "(cn=<employeeid>)" fullName
+
+#Certificate creation
+openssl genrsa -out bala.in.<organizationname>.com.key 2048
+openssl rsa -check -in bala.in.<organizationname>.com.key -text noout
+openssl req -new sha256 -key bala.in.<organizationname>.com.key -out bala.in.<organizationname>.com.csr
+openssl req -text -noout -verify -in bala.in.<organizationname>.com.csr
+
+#Creating a Self-Signed Certificate
+keytool -genkey -keystore <keystore_location> -alias <your_alias> -keyalg RSA
+
+#Creating a Certificate Signing Request
+keytool -certreq -keystore <keystore_location> -alias <your_alias> -file <your_file.cer>
+
+#When the response from the Certificate Authority is received
+keytool -import -keystore <your_keystore_name> -file <your_certificate_file.cer> -alias <your_alias> -trustcacerts
+
+#Export the RSA certificate (without the private key) from the server Key Store.
+keytool -export -keystore <your_keystore> -alias <your_alias> -file <your_file.cer>
+
+#Import the RSA certificate into the truststore.
+keytool -import -alias <your_alias> -keystore <your_truststore> -file <your_file.cer>
