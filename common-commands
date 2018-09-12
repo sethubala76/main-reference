@@ -26,7 +26,7 @@ cat /etc/redhat-release
 uname -r
 
 %SystemRoot%\SYSTEM32\rundll32.exe dsquery,OpenQueryWindow
-
+net user %USERNAME% /domain
 #LDAP Search commands
 LDAPTLS_CACERT=/home/bala/certificates/root.cer ldapsearch -x -H ldaps://<hostname.country.org.com>:1636 -D " cn=<employeeid>,ou=users,o=<org>" -W -s base -b "ou=users,o=<org>" -s one "(&(objectclass=<person>)(cn=<employeeid>))" mail
 ldapsearch  -H ldaps://<hostname.country.org.com>:1636 -D "cn=<applicationid>,ou=<applicationame>,ou=apps,o=<org>" -w Abc@12345  -b ou=users,o=<org> "(cn=<employeeid>)" fullName
