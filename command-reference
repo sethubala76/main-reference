@@ -1,0 +1,4 @@
+In windows,
+
+for /l %%N in (1 1 20) do curl http://path-to-my-domain
+If run from the command line then %%N must change to %N
