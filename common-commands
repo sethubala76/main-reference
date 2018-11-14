@@ -51,3 +51,9 @@ keytool -export -keystore <your_keystore> -alias <your_alias> -file <your_file.c
 
 #Import the RSA certificate into the truststore.
 keytool -import -alias <your_alias> -keystore <your_truststore> -file <your_file.cer>
+
+OOM Killer:- (example) - refer https://www.oracle.com/technetwork/articles/servers-storage-dev/oom-killer-1911807.html
+
+grep -i kill /var/log/messages*
+host kernel: Out of Memory: Killed process 2592 (oracle).
+
