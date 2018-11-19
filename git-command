@@ -1,0 +1,12 @@
+git branch
+git checkout feature
+vim roles/rolemapping/tasks/main.yml
+commit -am "Changed PUT to POST"
+git status
+git rebase -i develop
+git checkout develop
+git merge feature
+git push origin develop
+
+git log --oneline --graph --decorate
+
